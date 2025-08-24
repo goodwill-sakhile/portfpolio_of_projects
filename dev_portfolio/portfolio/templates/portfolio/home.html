@@ -1,0 +1,238 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sakhile Goodwill Shabangu | Home</title>
+  <!-- Google Fonts: Pacifico and Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #4b6cb7, #182848);
+      color: white;
+      min-height: 100vh;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #ffd369;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 5%;
+      background-color: rgba(0, 0, 0, 0.2);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .logo {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.8rem;
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      user-select: none;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    .nav-links a {
+      font-weight: 600;
+      color: white;
+      position: relative;
+    }
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      background: #ffd369;
+      width: 100%;
+      bottom: -4px;
+      left: 0;
+    }
+
+    /* Hero */
+    .hero {
+      text-align: center;
+      padding: 5rem 5% 3rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      user-select: none;
+    }
+
+    /* Circular profile picture container */
+    .profile-pic-container {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 2rem;
+      box-shadow: 0 0 15px rgba(255 255 255 / 0.4);
+      border: 4px solid #ffd369;
+    }
+    .profile-pic-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      color: #e0e0e0;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #ffd369;
+      color: #182848;
+      font-weight: 700;
+      padding: 12px 32px;
+      border-radius: 30px;
+      margin-top: 2rem;
+      box-shadow: 0 5px 15px rgba(255, 211, 105, 0.4);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+    .btn:hover,
+    .btn:focus {
+      background-color: #e6b94d;
+      outline: none;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 4rem 5%;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      background-color: rgba(255 255 255 / 0.1);
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0 0 0 / 0.2);
+    }
+    .about-section h2 {
+      font-weight: 800;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #ffd369;
+    }
+    .about-section p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      color: #eee;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      background-color: rgba(0,0,0,0.3);
+      color: #eee;
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+      user-select: none;
+      margin-top: auto;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .about-section {
+        padding: 2rem 2rem;
+      }
+      .profile-pic-container {
+        width: 120px;
+        height: 120px;
+        border-width: 3px;
+      }
+      .logo {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Goodwill Sakhile Shabangu</div>
+    <ul class="nav-links">
+	    <li><a href="{% url 'home' %}" class="active">Home</a></li>
+      <li><a href= "{% url 'projects' %}">Projects</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" role="banner">
+
+    <div class="profile-pic-container">
+	    <img src="{% static 'portfolio/images/GS.png'  %}" alt="Profile picture of Goodwill Sakhile Shabangu" />
+    </div>
+
+    <h1>Hi, I'm Sakhile 👋</h1>
+    <p>A self-taught software engineer passionate about solving real-world problems with code.</p>
+    <a href="projects.html" class="btn" role="button">View My Work</a>
+  </header>
+
+  <section class="about-section" id="about" role="region" aria-label="About Me">
+    <h2>About Me</h2>
+    <p>I'm a self-taught software engineer with a strong passion for building real-world applications that solve practical problems. My journey into tech began outside the traditional classroom—I taught myself programming through online courses, documentation, hands-on projects, and a relentless curiosity to understand how systems work.
+
+Over time, I’ve built a solid foundation in Python, Django, KivyMD, machine learning (CNN, YOLO), and cybersecurity (pentesting and ethical hacking). I’ve created projects ranging from deep learning apps and backend systems to security tools and full-stack web applications—all to grow my skills and make an impact.
+
+What sets me apart is:
+
+Problem-Solving Mindset: I approach challenges like puzzles. I break down complex issues into manageable solutions and continuously optimize.
+
+Fast Learner & Self-Motivated: I learn new tools, frameworks, and technologies quickly, adapting to changing environments with ease.
+
+Strong Project Portfolio: I’ve completed several projects independently, including a retail shop directory, a digital payment backend, and a custom VPN service—all available on my GitHub.
+
+Security-Aware Developer: As an ethical pentester, I build applications with security in mind and understand vulnerabilities from both an attack and defense perspective.
+
+Communication & Collaboration: With excellent written and verbal communication skills, I can clearly explain technical concepts to both technical and non-technical audiences.
+
+I’m looking for opportunities where I can contribute to real projects, grow alongside a talented team, and continue evolving as a developer. Whether it’s backend systems, full-stack development, or security-focused software—I’m all in.</p>
+  </section>
+
+  <footer role="contentinfo">
+    <p>© 2025 Goodwill Sakhile Shabangu. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
